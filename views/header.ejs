@@ -1,0 +1,187 @@
+<!-- <% let paths = ['/home'] %> <%= paths.includes(path) ? 'class=page-header-stick' : '' %> -->
+<header id="page-header">
+  <!-- top bar -->
+  <div class="top-bar bg-dark text-gray">
+    <div class="container">
+      <div class="row top-bar-holder">
+        <div class="col-xs-9 col">
+          <!-- bar links -->
+          <ul class="font-lato list-unstyled bar-links">
+            <li>
+              <a href="tel:+<%=header.tel%>">
+                <strong class="dt element-block text-capitalize hd-phone"
+                  ><%=header.telText%>:</strong
+                >
+                <strong class="dd element-block hd-phone"
+                  ><%=header.telOutText%></strong
+                >
+                <i
+                  class="fas fa-phone-square hd-up-phone hidden-sm hidden-md hidden-lg"
+                  ><span class="sr-only">phone</span></i
+                >
+              </a>
+            </li>
+            <li>
+              <a href="mailto:<%=header.email%>">
+                <strong class="dt element-block text-capitalize hd-phone"
+                  ><%=header.emailText%>:</strong
+                >
+                <strong class="dd element-block hd-phone"
+                  ><%=header.emailOutText%></strong
+                >
+                <i
+                  class="fas fa-envelope-square hd-up-phone hidden-sm hidden-md hidden-lg"
+                  ><span class="sr-only">email</span></i
+                >
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-3 col justify-end">
+          <!-- user links -->
+          <ul class="list-unstyled user-links fw-bold font-lato">
+            <li>
+              <a href="" class="" id="frButton">Français</a>
+              <span class="sep">|</span>
+              <a href="" class="" id="enButton">English</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- header holder -->
+  <div class="header-holder">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+          <!-- logo -->
+          <div class="logo">
+            <a href="/">
+              <img src="<%=header.logo%>" />
+            </a>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-9 static-block">
+          <!-- nav -->
+          <nav id="nav" class="navbar navbar-default">
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <!-- navbar collapse -->
+            <div
+              class="collapse navbar-collapse"
+              id="bs-example-navbar-collapse-1"
+            >
+              <!-- main navigation -->
+              <ul class="nav navbar-nav navbar-right main-navigation font-lato">
+                <li class="dropdown <%- path === '/home' ? 'active' : "" %>">
+                  <a
+                    href="/"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.homeNav%></a
+                  >
+                </li>
+
+                <li class="dropdown <%- path === '/about' ? 'active' : "" %>">
+                  <a
+                    href="/about"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.aboutNav%></a
+                  >
+                </li>
+                <li class="dropdown <%= path === '/services' ? 'active' : '' %>">
+                  <a
+                    href="/services"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.servicesNav%></a
+                  >
+                </li>
+                <li class="dropdown <%= path === '/blog' ? 'active' : '' %>">
+                  <a
+                    href="/blog"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.blogNav%></a
+                  >
+                </li>
+                <li class="dropdown <%= path === '/carrier' ? 'active' : '' %>">
+                  <a
+                    href="/carrier"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.carrierNav%></a
+                  >
+                </li>
+                <li class="dropdown <%= path === '/contact' ? 'active' : '' %>">
+                  <a
+                    href="/contact"
+                    class="dropdown-toggle"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    ><%=header.navbar.contactNav%></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <!-- navbar form -->
+            <form
+              action="#"
+              class="navbar-form navbar-search-form navbar-right"
+            >
+              <a
+                class="fas fa-search search-opener"
+                role="button"
+                data-toggle="collapse"
+                href="#searchCollapse"
+                aria-expanded="false"
+                aria-controls="searchCollapse"
+                ><span class="sr-only">search opener</span></a
+              >
+              <!-- search collapse -->
+              <div class="collapse search-collapse" id="searchCollapse">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search &hellip;"
+                  />
+                  <button type="button" class="fas fa-search btn">
+                    <span class="sr-only">search</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script src="/js/cookie.js"></script>

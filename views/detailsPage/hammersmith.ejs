@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the page title -->
+    <title><%= hammersmith.pageTitle %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('../header.ejs',{header,path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <div id="two-columns" class="container">
+          <div class="row">
+            <!-- content -->
+            <%- include('./sidebar.ejs',{pathSidebar}) %>
+            <section id="content" class="col-xs-12 col-md-9">
+              <!-- blogPost -->
+              <article class="blogPost single">
+                <div class="aligncenter">
+                  <img src="<%= hammersmith.titleImg %>" />
+                </div>
+                <h1><%= hammersmith.titleH1Text1 %></h1>
+                <!-- postActionsInfo -->
+                <p><%= hammersmith.pText1 %></p>
+                <strong><%= hammersmith.strongText1 %></strong>
+                <p><%= hammersmith.pText2 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= hammersmith.liText1 %></li>
+                  <li><%= hammersmith.liText2 %></li>
+                  <li><%= hammersmith.liText3 %></li>
+                  <li><%= hammersmith.liText4 %></li>
+                  <li><%= hammersmith.liText5 %></li>
+                  <li><%= hammersmith.liText6 %></li>
+                  <li><%= hammersmith.liText7 %></li>
+                </ul>
+                <strong><%= hammersmith.strongText2 %></strong>
+                <p><%= hammersmith.pText3 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= hammersmith.liText8 %></li>
+                  <li><%= hammersmith.liText9 %></li>
+                  <li><%= hammersmith.liText10 %></li>
+                </ul>
+                <p><%= hammersmith.pText4 %></p>
+                <h1 class="content-h1"><%= hammersmith.titleH1Text2 %></h1>
+                <p><%= hammersmith.pText5 %></p>
+                <blockquote>
+                  <q><%= hammersmith.quoteText1 %></q>
+                </blockquote>
+                <h1 class="content-h1"><%= hammersmith.titleH1Text3 %></h1>
+                <p><%= hammersmith.pText6 %></p>
+                <div class="alignleft contentLeftImage">
+                  <img src="<%= hammersmith.img1 %>" />
+                </div>
+                <div class="col-md-3 col-position">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= hammersmith.icon1 %>" />
+                    <h3><%= hammersmith.iconTitleText1 %></h3>
+                    <p><%= hammersmith.iconPText1 %></p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-position">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= hammersmith.icon2 %>" />
+                    <h3><%= hammersmith.iconTitleText2 %></h3>
+                    <p><%= hammersmith.iconPText2 %></p>
+                  </div>
+                </div>
+                <h1 class="content-h1"><%= hammersmith.titleH1Text4 %></h1>
+                <p><%= hammersmith.pText7 %></p>
+                <div
+                  class="panel-group why-panel-group"
+                  id="accordion"
+                  role="tablist"
+                  aria-multiselectable="true"
+                >
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseOne"
+                          aria-expanded="false"
+                          aria-controls="collapseOne"
+                          ><%= hammersmith.panelTitleText1 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      class="panel-collapse collapse"
+                      role="tabpanel"
+                      aria-labelledby="headingOne"
+                    >
+                      <div class="panel-body">
+                        <p><%= hammersmith.panelPText1 %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseTwo"
+                          aria-expanded="true"
+                          aria-controls="collapseTwo"
+                          ><%= hammersmith.panelTitleText2 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      class="panel-collapse collapse in"
+                      role="tabpanel"
+                      aria-labelledby="headingTwo"
+                    >
+                      <div class="panel-body">
+                        <p><%= hammersmith.panelPText2 %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseThree"
+                          aria-expanded="false"
+                          aria-controls="collapseThree"
+                          ><%= hammersmith.panelTitleText3 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseThree"
+                      class="panel-collapse collapse"
+                      role="tabpanel"
+                      aria-labelledby="headingThree"
+                    >
+                      <div class="panel-body">
+                        <p><%= hammersmith.panelPText3 %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="content-h1"><%= hammersmith.titleH1Text5 %></h1>
+                <p><%= hammersmith.pText8 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= hammersmith.liText11 %></li>
+                  <li><%= hammersmith.liText12 %></li>
+                  <li><%= hammersmith.liText13 %></li>
+                </ul>
+              </article>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!-- footer area container -->
+      <%- include('../footer.ejs',{footer}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="../images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="/js/init.js"></script>
+  </body>
+</html>

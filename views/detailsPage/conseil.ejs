@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the page title -->
+    <title><%= conseil.pageTitle %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('../header.ejs',{header,path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <div id="two-columns" class="container">
+          <div class="row">
+            <!-- content -->
+            <%- include('./sidebar.ejs',{pathSidebar}) %>
+            <section id="content" class="col-xs-12 col-md-9">
+              <!-- blogPost -->
+              <article class="blogPost single">
+                <div class="aligncenter">
+                  <img src="<%= conseil.titleImg %>" />
+                </div>
+                <h1><%= conseil.titleH1Text1 %></h1>
+                <!-- postActionsInfo -->
+                <p><%= conseil.pText1 %></p>
+                <p><%= conseil.pText2 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= conseil.liText1 %></li>
+                  <li><%= conseil.liText2 %></li>
+                  <li><%= conseil.liText3 %></li>
+                </ul>
+                <p><%= conseil.pText3 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= conseil.liText4 %></li>
+                  <li><%= conseil.liText5 %></li>
+                  <li><%= conseil.liText6 %></li>
+                  <li><%= conseil.liText7 %></li>
+                  <li><%= conseil.liText8 %></li>
+                </ul>
+                <p><%= conseil.pText4 %></p>
+                <!-- contentRightImage -->
+                <div class="alignright contentRightImage">
+                  <img src="<%= conseil.img1 %>" />
+                </div>
+                <ul class="listDefault list-unstyled">
+                  <li><%= conseil.liText9 %></li>
+                  <li><%= conseil.liText10 %></li>
+                  <li><%= conseil.liText11 %></li>
+                  <li><%= conseil.liText12 %></li>
+                </ul>
+                <p><%= conseil.pText5 %></p>
+                <blockquote>
+                  <q> <%= conseil.quoteText1 %> </q>
+                </blockquote>
+                <h1 class="content-h1"><%= conseil.titleH1Text2 %></h1>
+                <p><%= conseil.pText6 %></p>
+                <div class="alignleft contentLeftImage">
+                  <img src="<%= conseil.img2 %>" />
+                </div>
+                <div class="col-md-3 col-position">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= conseil.Icon1 %>" />
+                    <h3><%= conseil.IconTitleText1 %></h3>
+                    <p><%= conseil.IconPText1 %></p>
+                  </div>
+                </div>
+                <div class="col-md-3 col-position">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= conseil.Icon2 %>" />
+                    <h3><%= conseil.IconTitleText2 %></h3>
+                    <p><%= conseil.IconPText2 %></p>
+                  </div>
+                </div>
+                <h1 class="content-h1"><%= conseil.titleH1Text3 %></h1>
+                <p><%= conseil.pText7 %></p>
+                <div
+                  class="panel-group why-panel-group"
+                  id="accordion"
+                  role="tablist"
+                  aria-multiselectable="true"
+                >
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseOne"
+                          aria-expanded="false"
+                          aria-controls="collapseOne"
+                          ><%= conseil.panelTitleText1 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseOne"
+                      class="panel-collapse collapse"
+                      role="tabpanel"
+                      aria-labelledby="headingOne"
+                    >
+                      <div class="panel-body">
+                        <p><%= conseil.panelPText1 %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseTwo"
+                          aria-expanded="true"
+                          aria-controls="collapseTwo"
+                          ><%= conseil.panelTitleText2 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseTwo"
+                      class="panel-collapse collapse in"
+                      role="tabpanel"
+                      aria-labelledby="headingTwo"
+                    >
+                      <div class="panel-body">
+                        <p><%= conseil.panelPText2 %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- panel -->
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title fw-normal">
+                        <a
+                          class="accOpener element-block"
+                          role="button"
+                          data-toggle="collapse"
+                          data-parent="#accordion"
+                          href="#collapseThree"
+                          aria-expanded="false"
+                          aria-controls="collapseThree"
+                          ><%= conseil.panelTitleText3 %></a
+                        >
+                      </h4>
+                    </div>
+                    <div
+                      id="collapseThree"
+                      class="panel-collapse collapse"
+                      role="tabpanel"
+                      aria-labelledby="headingThree"
+                    >
+                      <div class="panel-body">
+                        <p><%= conseil.panelPText3 %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="content-h1"><%= conseil.titleH1Text4 %></h1>
+                <p><%= conseil.pText8 %></p>
+                <ul class="listDefault list-unstyled">
+                  <li><%= conseil.liText13 %></li>
+                  <li><%= conseil.liText14 %></li>
+                  <li><%= conseil.liText15 %></li>
+                  <li><%= conseil.liText16 %></li>
+                </ul>
+              </article>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!-- footer area container -->
+      <%- include('../footer',{footer}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="../images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <div class="popup-holder">
+      <div id="popup1" class="lightbox-demo">
+        <form action="#" class="user-log-form">
+          <h2>Login Form</h2>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control element-block"
+              placeholder="Username or email address *"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control element-block"
+              placeholder="Password *"
+            />
+          </div>
+          <div class="btns-wrap">
+            <div class="wrap">
+              <label for="rem" class="custom-check-wrap fw-normal font-lato">
+                <input type="checkbox" id="rem" class="customFormReset" />
+                <span class="fake-label element-block">Remember me</span>
+              </label>
+              <button
+                type="submit"
+                class="btn btn-theme btn-warning fw-bold font-lato text-uppercase"
+              >
+                Login
+              </button>
+            </div>
+            <div class="wrap text-right">
+              <p>
+                <a href="#" class="forget-link">Lost your Password?</a>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="popup2" class="lightbox-demo">
+        <form action="#" class="user-log-form">
+          <h2>Register Form</h2>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control element-block"
+              placeholder="Email address *"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control element-block"
+              placeholder="Password *"
+            />
+          </div>
+          <div class="btns-wrap">
+            <div class="wrap">
+              <button
+                type="submit"
+                class="btn btn-theme btn-warning fw-bold font-lato text-uppercase"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="/js/init.js"></script>
+  </body>
+</html>

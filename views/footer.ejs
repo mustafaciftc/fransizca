@@ -1,0 +1,122 @@
+<div class="footer-area bg-dark text-gray">
+  <aside class="aside container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 col">
+        <div class="logo">
+          <a href="/" class="font-type"> <%= footer.aText %> </a>
+        </div>
+        <p><%=footer.pText%></p>
+        <address class="ft-address">
+          <dl>
+            <dt>
+              <span class="fas <%=footer.icon1%>">
+                <span class="sr-only">phone</span>
+              </span>
+            </dt>
+            <dd><%=footer.telText%>: <a href="tel:+<%=footer.tel%>"><%=footer.telOutText%></a></dd>
+            <dt>
+              <span class="fas <%=footer.icon2%>">
+                <span class="sr-only">email</span>
+              </span>
+            </dt>
+            <dd>
+              <%=footer.emailText%>:
+              <a href="mailto:<%=footer.email%>"><%=footer.emailOutText%></a>
+            </dd>
+          </dl>
+        </address>
+      </div>
+      <nav class="col-xs-12 col-sm-4 col-md-3 col">
+        <h3><%=footer.navTitle%></h3>
+        <ul class="fooer-navigation list-unstyled">
+          <li class="<%= path === '/home' ? 'active' : '' %>">
+            <a href="/"><%=footer.navbar.homeNav%></a>
+          </li>
+          <li class="<%= path === '/about' ? 'active' : '' %>">
+            <a href="/about"><%=footer.navbar.aboutNav%></a>
+          </li>
+          <li class="<%= path === '/services' ? 'active' : '' %>">
+            <a href="/services"><%=footer.navbar.servicesNav%></a>
+          </li>
+          <li class="<%= path === '/blog' ? 'active' : '' %>">
+            <a href="/blog"><%=footer.navbar.blogNav%></a>
+          </li>
+          <li class="<%= path === '/carrier' ? 'active' : '' %>">
+            <a href="/carrier"><%=footer.navbar.carrierNav%></a>
+          </li>
+          <li class="<%= path === '/contact' ? 'active' : '' %>">
+            <a href="/contact"><%=footer.navbar.contactNav%></a>
+          </li>
+        </ul>
+      </nav>
+      <% if (recentPost?.blogId) { %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col">
+        <h3><%=footer.recentTitle%></h3>
+        <ul class="widget-cources-list list-unstyled">
+          <li>
+            <a href="/blog-detail/<%= recentPost.blogId %>">
+              <div class="alignleft">
+                <img src="<%= recentPost.img1 %>" />
+              </div>
+              <div class="description-wrap">
+                <h4><%= recentPost.title %></h4>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <% } else { %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col">
+        <h3><%=footer.recentTitle%></h3>
+        <%= footer.lang === "fr" ? "Aucun article trouvé" : "No Posts found" %>
+      </div>
+      <% } %>
+    </div>
+  </aside>
+  <footer id="page-footer" class="font-lato">
+    <div class="container">
+      <div class="row holder">
+        <% if (footer.facebookHref || footer.twitterHref || footer.instagramHref
+        || footer.linkedlinHref) { %>
+        <div class="col-xs-12 col-sm-push-6 col-sm-6">
+          <ul class="socail-networks list-unstyled">
+            <% if (footer.facebookHref && footer.facebookIcon) { %>
+            <li>
+              <a href="<%=footer.facebookHref%>">
+                <span class="fab <%=footer.facebookIcon%>"></span>
+              </a>
+            </li>
+            <% } %> <% if (footer.twitterHref && footer.twitterIcon) { %>
+            <li>
+              <a href="<%=footer.twitterHref%>">
+                <span class="fab <%=footer.twitterIcon%>"></span>
+              </a>
+            </li>
+            <% } %> <% if (footer.instagramHref && footer.instagramIcon) { %>
+            <li>
+              <a href="<%=footer.instagramHref%>">
+                <span class="fab <%=footer.instagramIcon%>"></span>
+              </a>
+            </li>
+            <% } %> <% if (footer.linkedlinHref && footer.linkedlinIcon) { %>
+            <li>
+              <a href="<%=footer.linkedlinHref%>">
+                <span class="fab <%=footer.linkedlinIcon%>"></span>
+              </a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+        <% } %>
+        <div class="col-xs-12 col-sm-pull-6 col-sm-6">
+          <p>
+            <%=footer.bottomPText%> <% if (footer.bottomAText &&
+            footer.bottomAHref) { %>
+            <a href="<%=footer.bottomAHref%>"><%=footer.bottomAText%></a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

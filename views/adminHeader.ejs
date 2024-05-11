@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= header.lang === "fr" ? "Admin Header" : "Admin Header" %></title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <link href="/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18">Header</h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">Header</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+          </div>
+          <!-- container-fluid -->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/header"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                    <div class="form-group">
+                        <label for="simpleinput">Phone Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone Text"
+                          name="telText"
+                          value="<%= header.telText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Phone</label>
+                        <input
+                          type="number"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone"
+                          name="tel"
+                          value="<%= header.tel %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Phone to appear</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone to appear"
+                          name="telOutText"
+                          value="<%= header.telOutText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email Text"
+                          name="emailText"
+                          value="<%= header.emailText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email</label>
+                        <input
+                          type="email"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email"
+                          name="email"
+                          value="<%= header.email %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email to appear</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email to appear"
+                          name="emailOutText"
+                          value="<%= header.emailOutText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Update Logo</h4>
+                        <input type="file" class="dropify" data-default-file="<%= header.logo %>"  name="logo" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.homeNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Home Navbar"
+                          name="nav1"
+                          value="<%= header.navbar.homeNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.aboutNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update About Navbar"
+                          name="nav2"
+                          value="<%= header.navbar.aboutNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.servicesNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Services Navbar"
+                          name="nav3"
+                          value="<%= header.navbar.servicesNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.blogNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Blog Navbar"
+                          name="nav4"
+                          value="<%= header.navbar.blogNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.carrierNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Carrier Navbar"
+                          name="nav5"
+                          value="<%= header.navbar.carrierNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= header.navbar.contactNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Contact Navbar"
+                          name="nav6"
+                          value="<%= header.navbar.contactNav %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        <%= header.lang === 'fr' ? 'Update' : 'update' %>
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/plugins/dropify/dropify.min.js"></script>
+    <script src="/pages/fileuploads-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

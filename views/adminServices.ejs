@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>About</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <link href="/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18">
+                    <%= header.navbar.servicesNav %>
+                  </h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <%= header.navbar.servicesNav %>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+            <!-- container-fluid -->
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <label for="simpleinput">Page Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update page title"
+                          name="pageTitle"
+                          value="<%= services.pageTitle %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title of content</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title of content"
+                          name="title"
+                          value="<%= services.title %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph of content 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph of content 1"
+                          name="pText1"
+                          value="<%= services.head.pText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph of content 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph of content 2"
+                          name="pText2"
+                          value="<%= services.head.pText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph of content 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph of content 3"
+                          name="pText3"
+                          value="<%= services.head.pText3 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <h4 class="card-title">1. Content Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.content.img1 %>"  name="img1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Content Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Content Title"
+                          name="h2Text1"
+                          value="<%= services.content.h2Text1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Content Subtitle</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Content Subtitle"
+                          name="liText1"
+                          value="<%= services.content.liText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Content Description </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Content Description"
+                          name="contentPText1"
+                          value="<%= services.content.contentPText1 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <h4 class="card-title">2. Content Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.content.img2 %>"  name="img2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Content Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Content Title"
+                          name="h2Text2"
+                          value="<%= services.content.h2Text2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Content Subtitle</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Content Subtitle"
+                          name="liText2"
+                          value="<%= services.content.liText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Content Description </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Content Description"
+                          name="contentPText2"
+                          value="<%= services.content.contentPText2 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <h4 class="card-title">3. Content Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.content.img3 %>"  name="img3" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Content Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Content Title"
+                          name="h2Text3"
+                          value="<%= services.content.h2Text3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Content Subtitle</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Content Subtitle"
+                          name="liText3"
+                          value="<%= services.content.liText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Content Description </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Content Description"
+                          name="contentPText3"
+                          value="<%= services.content.contentPText3 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <h4 class="card-title">4. Content Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.content.img4 %>"  name="img4" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">4. Content Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 4. Content Title"
+                          name="h2Text4"
+                          value="<%= services.content.h2Text4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">4. Content Subtitle</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 4. Content Subtitle"
+                          name="liText4"
+                          value="<%= services.content.liText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">4. Content Description </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 4. Content Description"
+                          name="contentPText4"
+                          value="<%= services.content.contentPText4 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <div class="col-xl-12">
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      action="/admin/services"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <h4 class="card-title">Background Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.bottom.backendImg %>"  name="backendImg" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">1. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.bottom.icon1 %>"  name="icon1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">2. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.bottom.icon2 %>"  name="icon2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">3. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= services.bottom.icon3 %>"  name="icon3" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon Text"
+                          name="iconText1"
+                          value="<%= services.bottom.iconText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon Text </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon Text"
+                          name="iconText2"
+                          value="<%= services.bottom.iconText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Icon Text </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Icon Text"
+                          name="iconText3"
+                          value="<%= services.bottom.iconText3 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/plugins/dropify/dropify.min.js"></script>
+    <script src="/pages/fileuploads-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

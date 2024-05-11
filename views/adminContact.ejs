@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= header.navbar.contactNav %></title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18">
+                    <%= header.navbar.contactNav %>
+                  </h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <%= header.navbar.contactNav %>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+            <!-- container-fluid -->
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/contact"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <label for="simpleinput">Page Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update page title"
+                          name="pageTitle"
+                          value="<%= contact.pageTitle %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title of content</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title of content"
+                          name="titleH2Text"
+                          value="<%= contact.titleH2Text %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph of content 1 </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph of content 1"
+                          name="pText1"
+                          value="<%= contact.pText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph of content 2 </label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph of content 2"
+                          name="pText2"
+                          value="<%= contact.pText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">1. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= contact.icon1 %>"  name="icon1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon title"
+                          name="iconTitleText1"
+                          value="<%= contact.iconTitleText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon Description</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon Description"
+                          name="iconPText1"
+                          value="<%= contact.iconPText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">2. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= contact.icon2 %>"  name="icon2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon Title"
+                          name="iconTitleText2"
+                          value="<%= contact.iconTitleText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon Description</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon Description"
+                          name="iconPText2"
+                          value="<%= contact.iconPText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">3. Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= contact.icon3 %>"  name="icon3" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Icon Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Icon Title"
+                          name="iconTitleText3"
+                          value="<%= contact.iconTitleText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Icon Description</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Icon Description"
+                          name="iconPText3"
+                          value="<%= contact.iconPText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. Icon Description 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. Icon Description 2"
+                          name="iconPText4"
+                          value="<%= contact.iconPText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. the text of the input</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. the text of the input"
+                          name="inputText1"
+                          value="<%= contact.inputText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. the text of the input</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. the text of the input"
+                          name="inputText2"
+                          value="<%= contact.inputText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">3. the text of the input</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 3. the text of the input"
+                          name="inputText3"
+                          value="<%= contact.inputText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">4. the text of the input</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 4. the text of the input"
+                          name="inputText4"
+                          value="<%= contact.inputText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Button Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Button Text"
+                          name="buttonText"
+                          value="<%= contact.buttonText %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/plugins/dropify/dropify.min.js"></script>
+    <script src="/pages/fileuploads-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>About</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18">Footer</h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">Footer</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+            <!-- container-fluid -->
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/footer"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <label for="simpleinput">Title Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title Text"
+                          name="aText"
+                          value="<%= footer.aText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph"
+                          name="pText"
+                          value="<%= footer.pText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon (Font Awesome)</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon (Font Awesome)"
+                          name="icon1"
+                          value="<%= footer.icon1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon (Font Awesome)</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon (Font Awesome)"
+                          name="icon2"
+                          value="<%= footer.icon2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Phone Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone Text"
+                          name="telText"
+                          value="<%= footer.telText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Phone</label>
+                        <input
+                          type="number"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone"
+                          name="tel"
+                          value="<%= footer.tel %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Phone to appear</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Phone to appear"
+                          name="telOutText"
+                          value="<%= footer.telOutText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email Text"
+                          name="emailText"
+                          value="<%= footer.emailText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email</label>
+                        <input
+                          type="email"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email"
+                          name="email"
+                          value="<%= footer.email %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Email to appear</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Email to appear"
+                          name="emailOutText"
+                          value="<%= footer.emailOutText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Navbar Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Navbar Title"
+                          name="navTitle"
+                          value="<%= footer.navTitle %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.homeNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Home Navbar"
+                          name="homeNav"
+                          value="<%= footer.navbar.homeNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.aboutNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update About Navbar"
+                          name="aboutNav"
+                          value="<%= footer.navbar.aboutNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.servicesNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Services Navbar"
+                          name="servicesNav"
+                          value="<%= footer.navbar.servicesNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.blogNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Blog Navbar"
+                          name="blogNav"
+                          value="<%= footer.navbar.blogNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.carrierNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Carrier Navbar"
+                          name="carrierNav"
+                          value="<%= footer.navbar.carrierNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          ><%= footer.navbar.contactNav %></label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Contact Navbar"
+                          name="contactNav"
+                          value="<%= footer.navbar.contactNav %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Recent Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Recent Title"
+                          name="recentTitle"
+                          value="<%= footer.recentTitle %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">P tag at the bottom</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update P tag at the bottom"
+                          name="bottomPText"
+                          value="<%= footer.bottomPText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">A tag at the bottom</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update A tag at the bottom"
+                          name="bottomAText"
+                          value="<%= footer.bottomAText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Facebook Link</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Facebook Link"
+                          name="facebookHref"
+                          value="<%= footer.facebookHref %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Facebook Icon (Font Awesome)</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Facebook Icon (Font Awesome)"
+                          name="facebookIcon"
+                          value="<%= footer.facebookIcon %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Twitter Link</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Twitter Link"
+                          name="twitterHref"
+                          value="<%= footer.twitterHref %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Twitter Icon (Font Awesome)</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Twitter Icon (Font Awesome)"
+                          name="twitterIcon"
+                          value="<%= footer.twitterIcon %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Instagram Link</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Instagram Link"
+                          name="instagramHref"
+                          value="<%= footer.instagramHref %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Instagram Icon (Font Awesome)</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Instagram Icon (Font Awesome)"
+                          name="instagramIcon"
+                          value="<%= footer.instagramIcon %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Linkedln Link</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Linkedln Link"
+                          name="linkedlinHref"
+                          value="<%= footer.linkedlinHref %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Linkedln Icon (Font Awesome)</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Linkedln Icon (Font Awesome)"
+                          name="linkedlinIcon"
+                          value="<%= footer.linkedlinIcon %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

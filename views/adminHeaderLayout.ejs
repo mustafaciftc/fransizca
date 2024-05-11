@@ -1,0 +1,226 @@
+<header id="page-topbar">
+  <div class="navbar-header">
+    <div class="d-flex align-items-left">
+      <button
+        type="button"
+        class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+        id="vertical-menu-btn"
+      >
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="d-flex align-items-center">
+      <div class="dropdown d-none d-sm-inline-block ml-2">
+        <button
+          type="button"
+          class="btn header-item noti-icon waves-effect"
+          id="page-header-search-dropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="mdi mdi-magnify"></i>
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+          aria-labelledby="page-header-search-dropdown"
+        >
+          <form class="p-3">
+            <div class="form-group m-0">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search ..."
+                  aria-label="Recipient's username"
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="mdi mdi-magnify"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <% if (header.lang === "fr") { %>
+      <div class="dropdown d-inline-block">
+        <button
+          type="button"
+          class="btn header-item waves-effect"
+          id="page-header-user-dropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class=""
+            src="/assets/images/flags/fr.jpg"
+            alt="Header Language"
+            height="16"
+          />
+          <span class="d-none d-sm-inline-block ml-1">Français</span>
+          <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="/assets/images/flags/en.jpg"
+              alt="user-image"
+              class="mr-1"
+              height="12"
+            />
+            <span class="align-middle" id="enButton">English</span>
+          </a>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="dropdown d-inline-block">
+        <button
+          type="button"
+          class="btn header-item waves-effect"
+          id="page-header-user-dropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class=""
+            src="/assets/images/flags/en.jpg"
+            alt="Header Language"
+            height="16"
+          />
+          <span class="d-none d-sm-inline-block ml-1">English</span>
+          <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="/assets/images/flags/fr.jpg"
+              alt="user-image"
+              class="mr-1"
+              height="12"
+            />
+            <span class="align-middle" id="frButton">Français</span>
+          </a>
+        </div>
+      </div>
+      <% } %>
+      <div class="dropdown d-inline-block ml-2">
+        <button
+          type="button"
+          class="btn header-item waves-effect"
+          id="page-header-user-dropdown"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class="rounded-circle header-profile-user"
+            src="/assets/images/users/avatar-3.jpg"
+            alt="Header Avatar"
+          />
+          <span class="d-none d-sm-inline-block ml-1"><%= user.name %></span>
+          <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a
+            class="dropdown-item d-flex align-items-center justify-content-between"
+            href="/admin/logout"
+          >
+            <span>Log Out</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== Left Sidebar Start ========== -->
+<div class="vertical-menu">
+  <div data-simplebar class="h-100">
+    <div class="navbar-brand-box">
+      <a href="/admin/header" class="logo">
+        <img src="/images/Hammer-Smith-fr-300x98-removebg-preview.png" />
+      </a>
+    </div>
+
+    <!--- Sidemenu -->
+    <div id="sidebar-menu">
+      <!-- Left Menu Start -->
+      <ul class="metismenu list-unstyled" id="side-menu">
+        <li class="menu-title">Admin</li>
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect"
+            ><i class="bx bx-file"></i><span>Pages</span></a
+          >
+          <ul class="sub-menu" aria-expanded="false">
+            <li><a href="/admin/header">Header</a></li>
+            <li>
+              <a href="/admin/home"><%= header.navbar.homeNav %></a>
+            </li>
+            <li>
+              <a href="/admin/about"><%= header.navbar.aboutNav %></a>
+            </li>
+            <li>
+              <a href="/admin/services"><%= header.navbar.servicesNav %></a>
+            </li>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow"
+                >Service Details</a
+              >
+              <ul class="sub-menu" aria-expanded="true">
+                <li><a href="/admin/sidebar"><%= sidebar.barTitleText %></a></li>
+                <li><a href="/admin/compliance"><%= sidebar.barText1 %></a></li>
+                <li>
+                  <a href="/admin/conseil"><%= sidebar.barText2 %></a>
+                </li>
+                <li>
+                  <a href="/admin/hammersmith"><%= sidebar.barText3 %></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/admin/blog"><%= header.navbar.blogNav %></a>
+            </li>
+            <li>
+              <a href="/admin/carrier"><%= header.navbar.carrierNav %></a>
+            </li>
+            <li>
+              <a href="/admin/contact"><%= header.navbar.contactNav %></a>
+            </li>
+            <li>
+              <a href="/admin/footer">Footer</a>
+            </li>
+          </ul>
+        </li>
+        <% if (blogs?.length > 0) { %>
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect"
+            ><i class="bx bx-file"></i><span>Blog</span></a
+          >
+          <ul class="sub-menu" aria-expanded="false">
+            <% blogs.forEach((blog,i) => { %>
+            <li>
+              <a href="javascript: void(0);" class="has-arrow"
+                >Blog <%= i+1 %></a
+              >
+              <ul class="sub-menu" aria-expanded="true">
+                <li><a href="/admin/blog/update/<%= blog._id %>">Update</a></li>
+                <li><a href="/admin/blog/remove/<%= blog._id %>">Remove</a></li>
+              </ul>
+            </li>
+            <% }) %>
+          </ul>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <!-- Sidebar -->
+  </div>
+</div>
+<!-- Left Sidebar End -->

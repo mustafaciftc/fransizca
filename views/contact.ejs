@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the description -->
+    <meta name="description" content="STUDYLMS HTML Template" />
+    <!-- set the Keyword -->
+    <meta name="keywords" content="" />
+    <meta name="author" content="STUDYLMS HTML Template" />
+    <!-- set the page title -->
+    <title><%= contact.pageTitle %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('./header.ejs',{header}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <section class="contact-block">
+          <div class="container">
+            <header class="seperator-head text-center">
+              <h2><%= contact.titleH2Text %></h2>
+              <p><%= contact.pText1 %></p>
+              <p><%= contact.pText2 %></p>
+            </header>
+            <div class="row">
+              <div class="col-xs-12 col-sm-4">
+                <!-- detail column -->
+                <div class="detail-column">
+                  <span class="icn-wrap no-shrink element-block">
+                    <img src="<%= contact.icon1 %>" alt="icon" />
+                  </span>
+                  <div class="descr-wrap">
+                    <h3 class="text-uppercase">
+                      <%= contact.iconTitleText1 %>
+                    </h3>
+                    <p>
+                      <a href="tel:+<%= contact.iconPText1 %>"
+                        >+<%= contact.iconPText1 %></a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <!-- detail column -->
+                <div class="detail-column">
+                  <span class="icn-wrap no-shrink element-block">
+                    <img src="<%= contact.icon2 %>" alt="icon" />
+                  </span>
+                  <div class="descr-wrap">
+                    <h3 class="text-uppercase">
+                      <%= contact.iconTitleText2 %>
+                    </h3>
+                    <p>
+                      <a href="mailto:<%= contact.iconPText2 %>"
+                        ><%= contact.iconPText2 %></a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <!-- detail column -->
+                <div class="detail-column">
+                  <span class="icn-wrap no-shrink element-block">
+                    <img src="<%= contact.icon3 %>" alt="icon" />
+                  </span>
+                  <div class="descr-wrap">
+                    <h3 class="text-uppercase">
+                      <%= contact.iconTitleText3 %>
+                    </h3>
+                    <p><%= contact.iconPText3 %></p>
+                    <br />
+                    <p><%= contact.iconPText4 %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="sep-or element-block" data-text="or" />
+            <!-- contact form -->
+            <form action="#" class="contact-form">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control element-block"
+                      placeholder="<%= contact.inputText1 %>"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control element-block"
+                      placeholder="<%= contact.inputText2 %>"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control element-block"
+                      placeholder="<%= contact.inputText3 %>"
+                    />
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <textarea
+                      class="form-control element-block"
+                      placeholder="<%= contact.inputText4 %>"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-theme btn-warning text-uppercase font-lato fw-bold"
+                >
+                  <%= contact.buttonText %>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+      <!-- footer area container -->
+      <%- include('./footer.ejs',{footer,path}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="js/init.js"></script>
+  </body>
+</html>

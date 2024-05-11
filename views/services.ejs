@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the page title -->
+    <title><%= services.pageTitle %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('./header.ejs',{header,path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <section class="container professionals-block">
+          <header class="seperator-head text-center">
+            <h2 class="block-header-heading"><%= services.title %></h2>
+            <p><%= services.head.pText1 %></p>
+            <p><%= services.head.pText2 %></p>
+            <p><%= services.head.pText3 %></p>
+            <% if (services.head.pText4) { %>
+            <p><%= services.head.pText4 %></p>
+            <% } %> <% if (services.head.pText5) { %>
+            <p><%= services.head.pText5 %></p>
+            <% } %> <% if (services.head.pText6) { %>
+            <p><%= services.head.pText6 %></p>
+            <% } %>
+          </header>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+              <!-- pro column -->
+              <article class="blogPost">
+                <div class="aligncenter">
+                  <img src="<%= services.content.img1 %>" />
+                </div>
+                <h2>
+                  <a href="/service-details/compliance"
+                    ><%= services.content.h2Text1 %></a
+                  >
+                </h2>
+                <!-- postActionsInfo -->
+                <ul class="list-unstyled postActionsInfo text-uppercase">
+                  <li><%= services.content.liText1 %></li>
+                </ul>
+                <p><%= services.content.contentPText1 %></p>
+              </article>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-6">
+              <!-- pro column -->
+              <article class="blogPost">
+                <div class="aligncenter">
+                  <img src="<%= services.content.img2 %>" />
+                </div>
+                <h2>
+                  <a href="/service-details/conseil-en-risques"
+                    ><%= services.content.h2Text2 %></a
+                  >
+                </h2>
+                <!-- postActionsInfo -->
+                <ul class="list-unstyled postActionsInfo text-uppercase">
+                  <li><%= services.content.liText2 %></li>
+                </ul>
+                <p><%= services.content.contentPText2 %></p>
+              </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <!-- pro column -->
+              <article class="blogPost">
+                <div class="aligncenter">
+                  <img src="<%= services.content.img3 %>" />
+                </div>
+                <h2>
+                  <a href="/service-details/#"
+                    ><%= services.content.h2Text3 %></a
+                  >
+                </h2>
+                <!-- postActionsInfo -->
+                <% if (services.content.liText3 ||
+                services.content.contentPText3) { %>
+                <ul class="list-unstyled postActionsInfo text-uppercase">
+                  <% if (services.content.liText3) { %>
+                  <li><%= services.content.liText3 %></li>
+                  <% } %>
+                </ul>
+                <% if (services.content.contentPText3) { %>
+                <p><%= services.content.contentPText3 %></p>
+                <% } %> <% } %>
+              </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <!-- pro column -->
+              <article class="blogPost">
+                <div class="aligncenter">
+                  <img src="<%= services.content.img4 %>" />
+                </div>
+                <h2>
+                  <a
+                    href="/service-details/hammersmith-services-de-conseil-en-informatique"
+                  >
+                    <%= services.content.h2Text4 %>
+                  </a>
+                </h2>
+                <!-- postActionsInfo -->
+                <ul class="list-unstyled postActionsInfo text-uppercase">
+                  <li><%= services.content.liText4 %></li>
+                </ul>
+                <p><%= services.content.contentPText4 %></p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <aside
+          class="bg-cover categories-aside text-center"
+          style="background-image: url('<%= services.bottom.backendImg %>')"
+        >
+          <div class="container holder">
+            <!-- categories list -->
+            <ul class="list-unstyled categories-list">
+              <li>
+                <a href="javascript:void(0)">
+                  <div class="align">
+                    <span class="icn-wrap">
+                      <img
+                        src="<%= services.bottom.icon1 %>"
+                        width="43"
+                        height="43"
+                      />
+                    </span>
+                    <strong class="h h5 element-block text-uppercase"
+                      ><%= services.bottom.iconText1 %>
+                    </strong>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <div class="align">
+                    <span class="icn-wrap">
+                      <img
+                        src="<%= services.bottom.icon2 %>"
+                        width="44"
+                        height="48"
+                      />
+                    </span>
+                    <strong class="h h5 element-block text-uppercase"
+                      ><%= services.bottom.iconText2 %>
+                    </strong>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <div class="align">
+                    <span class="icn-wrap">
+                      <img
+                        src="<%= services.bottom.icon3 %>"
+                        width="51"
+                        height="42"
+                      />
+                    </span>
+                    <strong class="h h5 element-block text-uppercase"
+                      ><%= services.bottom.iconText3 %>
+                    </strong>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </main>
+      <!-- footer area container -->
+      <%- include('./footer.ejs',{footer, path}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="js/init.js"></script>
+  </body>
+</html>

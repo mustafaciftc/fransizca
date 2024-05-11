@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the page title -->
+    <title><%= about.pageTitle %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('./header.ejs',{header,path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <header
+          class="heading-banner text-white bgCover"
+          style="background-image: url('<%= about.titleImg %>')"
+        >
+          <div class="container holder">
+            <div class="align">
+              <h1><%= about.titleH1Text %></h1>
+            </div>
+          </div>
+        </header>
+        <section class="container how-work-block text-center">
+          <header class="seperator-head">
+            <h2><%= about.titleH2Text %></h2>
+            <p><%= about.pText1 %></p>
+            <% if (about.pText2) { %>
+            <p><%= about.pText2 %></p>
+            <% } %> <% if (about.pText3) { %>
+            <p><%= about.pText3 %></p>
+            <% } %> <% if (about.pText4) { %>
+            <p><%= about.pText4 %></p>
+            <% } %>
+          </header>
+          <!-- steps guide holder -->
+          <aside class="bg-gray courses-column-aside">
+            <div class="container">
+              <div class="row holder">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= about.img1 %>" />
+                    <h3 class="h3-position"><%= about.imgText1 %></h3>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= about.img2 %>" />
+                    <h3 class="h3-position"><%= about.imgText2 %></h3>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= about.img3 %>" />
+                    <h3 class="h3-position"><%= about.imgText3 %></h3>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <!-- descr column -->
+                  <div class="descr-column text-center">
+                    <img src="<%= about.img4 %>" />
+                    <h3 class="h3-position"><%= about.imgText4 %></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+      <!-- footer area container -->
+      <%- include('./footer.ejs',{footer, path}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="js/init.js"></script>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      content="Premium Multipurpose Admin & Dashboard Template"
+      name="description"
+    />
+    <meta content="MyraStudio" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <link href="/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18">
+                    <%= header.navbar.homeNav %>
+                  </h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <%= header.navbar.homeNav %>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+          </div>
+          <!-- container-fluid -->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/home"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <label for="simpleinput">Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update title"
+                          name="title"
+                          value="<%= home.title %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">First Slide Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide1.slideImg %>"  name="slide1Img" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">First Slide Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update First Slide Text"
+                          name="slide1Text"
+                          value="<%= home.slide1.slideText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Second Slide Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide2.slideImg %>"  name="slide2Img" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Second Slide Text 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Second Slide Text 1"
+                          name="slide2Text1"
+                          value="<%= home.slide2.slideText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Second Slide Text 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Second Slide Text 2"
+                          name="slide2Text2"
+                          value="<%= home.slide2.slideText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Second Slide Button Text</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Second Slide Button Text"
+                          name="slide2ButtonText"
+                          value="<%= home.slide2.slideButtonText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Third Slide Backend Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide3.slideImg %>"  name="slide3BackendImg" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Third Slide Text 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide Text 1"
+                          name="slide3Text1"
+                          value="<%= home.slide3.slideText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Third Slide Image 1 (Recommended 20x20)</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide3.slideImg1 %>"  name="slide3Img1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Third Slide Image 2 (Recommended 20x20)</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide3.slideImg2 %>"  name="slide3Img2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Third Slide Image 3 (Recommended 20x20)</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide3.slideImg3 %>"  name="slide3Img3" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Third Slide Image 4 (Recommended 20x20)</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.slide3.slideImg4 %>"  name="slide3Img4" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Third Slide text next to the image 1</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide text next to the image 1"
+                          name="slide3PText1"
+                          value="<%= home.slide3.slidePText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Third Slide text next to the image 2</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide text next to the image 2"
+                          name="slide3PText2"
+                          value="<%= home.slide3.slidePText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Third Slide text next to the image 3</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide text next to the image 3"
+                          name="slide3PText3"
+                          value="<%= home.slide3.slidePText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Third Slide text next to the image 4</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide text next to the image 4"
+                          name="slide3PText4"
+                          value="<%= home.slide3.slidePText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Third Slide Button Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Third Slide Button Text"
+                          name="slide3ButtonText"
+                          value="<%= home.slide3.slideButtonText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Content Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Title"
+                          name="contentH2Text"
+                          value="<%= home.Content.h2Text %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Content Explanation</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Explanation"
+                          name="contentPText"
+                          value="<%= home.Content.pText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Content icon 1</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.Content.img1 %>"  name="contentImg1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Content icon 2</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.Content.img2 %>"  name="contentImg2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Content icon 3</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.Content.img3 %>"  name="contentImg3" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Content icon 4</h4>
+                        <input type="file" class="dropify" data-default-file="<%= home.Content.img4 %>"  name="contentImg4" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Content Icon 1 Explanation</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Icon 1 Explanation"
+                          name="contentH3Text1"
+                          value="<%= home.Content.h3Text1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Content Icon 2 Explanation</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Icon 2 Explanation"
+                          name="contentH3Text2"
+                          value="<%= home.Content.h3Text2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Content Icon 3 Explanation</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Icon 3 Explanation"
+                          name="contentH3Text3"
+                          value="<%= home.Content.h3Text3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput"
+                          >Content Icon 4 Explanation</label
+                        >
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Content Icon 4 Explanation"
+                          name="contentH3Text4"
+                          value="<%= home.Content.h3Text4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Support Title"
+                          name="supportH2Text"
+                          value="<%= home.Support.h2Text %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Explanation</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Support Explanation"
+                          name="supportPText"
+                          value="<%= home.Support.pText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Button Text</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Button Text"
+                          name="supportButtonText"
+                          value="<%= home.Support.buttonText %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Input Text 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Input Text 1"
+                          name="supportInputText1"
+                          value="<%= home.Support.inputPlaceHolder1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Input Text 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Input Text 2"
+                          name="supportInputText2"
+                          value="<%= home.Support.inputPlaceHolder2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Input Text 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Input Text 3"
+                          name="supportInputText3"
+                          value="<%= home.Support.inputPlaceHolder3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Support Input Text 4</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Input Text 4"
+                          name="supportInputText4"
+                          value="<%= home.Support.inputPlaceHolder4 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/plugins/dropify/dropify.min.js"></script>
+    <script src="/pages/fileuploads-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

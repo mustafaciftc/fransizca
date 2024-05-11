@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>About</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <link href="/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link
+      href="/assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include('adminHeaderLayout', {header}) %>
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div
+                  class="page-title-box d-flex align-items-center justify-content-between"
+                >
+                  <h4 class="mb-0 font-size-18"><%= sidebar.barText2 %></h4>
+
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item">
+                        <a href="javascript: void(0);">Pages</a>
+                      </li>
+                      <li class="breadcrumb-item active">
+                        <%= sidebar.barText2 %>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+            <!-- container-fluid -->
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="card">
+                  <% if (action !== "undefined" && action === "success") { %>
+                  <div
+                    class="alert alert-success alert-dismissible fade show mb-0"
+                    role="alert"
+                  >
+                    <%= header.lang === "fr" ? `Mise à jour réussie` :
+                    'Successfully updated' %>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="alert"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <% } %>
+                  <% if (action !== "undefined" && action === "error") { %>
+                    <div
+                      class="alert alert-danger alert-dismissible fade show mb-0"
+                      role="alert"
+                    >
+                      <%= header.lang === "fr" ? `Erreur inattendue, réessayez plus tard!` :
+                      `Unexpected error, try again later!` %>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <% } %>
+                  <div class="card-body">
+                    <form
+                      action="/admin/conseil"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <div class="form-group">
+                        <label for="simpleinput">Page Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update page title"
+                          name="pageTitle"
+                          value="<%= conseil.pageTitle %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">First Image</h4>
+                        <input type="file" class="dropify" data-default-file="<%= conseil.titleImg %>"  name="titleImg" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title"
+                          name="titleH1Text1"
+                          value="<%= conseil.titleH1Text1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 1"
+                          name="pText1"
+                          value="<%= conseil.pText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 2"
+                          name="pText2"
+                          value="<%= conseil.pText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 1"
+                          name="liText1"
+                          value="<%= conseil.liText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 2"
+                          name="liText2"
+                          value="<%= conseil.liText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 3"
+                          name="liText3"
+                          value="<%= conseil.liText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 3"
+                          name="pText3"
+                          value="<%= conseil.pText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 4</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 4"
+                          name="liText4"
+                          value="<%= conseil.liText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 5</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 5"
+                          name="liText5"
+                          value="<%= conseil.liText5 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 6</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 6"
+                          name="liText6"
+                          value="<%= conseil.liText6 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 7</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 7"
+                          name="liText7"
+                          value="<%= conseil.liText7 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 8</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 8"
+                          name="liText8"
+                          value="<%= conseil.liText8 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 4</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 4"
+                          name="pText4"
+                          value="<%= conseil.pText4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Image 1.</h4>
+                        <input type="file" class="dropify" data-default-file="<%= conseil.img1 %>"  name="img1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 9</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 9"
+                          name="liText9"
+                          value="<%= conseil.liText9 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 10</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 10"
+                          name="liText10"
+                          value="<%= conseil.liText10 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 11</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 11"
+                          name="liText11"
+                          value="<%= conseil.liText11 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 12</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 12"
+                          name="liText12"
+                          value="<%= conseil.liText12 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 5</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 5"
+                          name="pText5"
+                          value="<%= conseil.pText5 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Quote 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Quote 1"
+                          name="quoteText1"
+                          value="<%= conseil.quoteText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title 2"
+                          name="titleH1Text2"
+                          value="<%= conseil.titleH1Text2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 6</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 6"
+                          name="pText6"
+                          value="<%= conseil.pText6 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">Image 2.</h4>
+                        <input type="file" class="dropify" data-default-file="<%= conseil.img2 %>"  name="img2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">1.Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= conseil.Icon1 %>"  name="Icon1" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon title"
+                          name="IconTitleText1"
+                          value="<%= conseil.IconTitleText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">1. Icon Description</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 1. Icon Description"
+                          name="IconPText1"
+                          value="<%= conseil.IconPText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <h4 class="card-title">2.Icon</h4>
+                        <input type="file" class="dropify" data-default-file="<%= conseil.Icon2 %>"  name="Icon2" accept="image/*"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon title</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon title"
+                          name="IconTitleText2"
+                          value="<%= conseil.IconTitleText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">2. Icon Description</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update 2. Icon Description"
+                          name="IconPText2"
+                          value="<%= conseil.IconPText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title 3"
+                          name="titleH1Text3"
+                          value="<%= conseil.titleH1Text3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 7</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 7"
+                          name="pText7"
+                          value="<%= conseil.pText7 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Title 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Title 1"
+                          name="panelTitleText1"
+                          value="<%= conseil.panelTitleText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Description 1</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Description 1"
+                          name="panelPText1"
+                          value="<%= conseil.panelPText1 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Title 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Title 2"
+                          name="panelTitleText2"
+                          value="<%= conseil.panelTitleText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Description 2</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Description 2"
+                          name="panelPText2"
+                          value="<%= conseil.panelPText2 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Title 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Title 3"
+                          name="panelTitleText3"
+                          value="<%= conseil.panelTitleText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Panel Description 3</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Panel Description 3"
+                          name="panelPText3"
+                          value="<%= conseil.panelPText3 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Title 4</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Title 4"
+                          name="titleH1Text4"
+                          value="<%= conseil.titleH1Text4 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Paragraph 8</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Paragraph 8"
+                          name="pText8"
+                          value="<%= conseil.pText8 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 13</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 13"
+                          name="liText13"
+                          value="<%= conseil.liText13 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 14</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 14"
+                          name="liText14"
+                          value="<%= conseil.liText14 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 15</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 15"
+                          name="liText15"
+                          value="<%= conseil.liText15 %>"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="simpleinput">Sort 16</label>
+                        <input
+                          type="text"
+                          id="simpleinput"
+                          class="form-control"
+                          placeholder="Update Sort 16"
+                          name="liText16"
+                          value="<%= conseil.liText16 %>"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-outline-info btn-lg btn-block waves-effect waves-light"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                  <!-- end card-body-->
+                </div>
+                <!-- end card -->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row-->
+          </div>
+        </div>
+        <!-- End Page-content -->
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">HSCG</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Overlay-->
+    <div class="menu-overlay"></div>
+
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/metismenu.min.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/simplebar.min.js"></script>
+    <script src="/plugins/dropify/dropify.min.js"></script>
+    <script src="/pages/fileuploads-demo.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/js/cookie.js"></script>
+  </body>
+</html>

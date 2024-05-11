@@ -1,0 +1,22 @@
+<aside class="col-xs-12 col-md-3" id="sidebar">
+  <!-- widget categories -->
+  <section class="widget widget_categories">
+    <h3><%= sidebar.barTitleText %></h3>
+    <ul class="list-unstyled text-capitalize font-lato">
+      <li class="cat-item cat-item-1 <%= pathSidebar === "/service-details/compliance" ? 'active' : '' %>">
+        <a href="/service-details/compliance"><%= sidebar.barText1 %></a>
+      </li>
+      <li class="cat-item cat-item-2 <%= pathSidebar === "/service-details/conseil" ? 'active' : '' %>">
+        <a href="/service-details/conseil-en-risques"
+          ><%= sidebar.barText2 %></a
+        >
+      </li>
+      <li class="cat-item cat-item-3 <%= pathSidebar === "/service-details/hammersmith" ? 'active' : '' %>">
+        <a
+          href="/service-details/hammersmith-services-de-conseil-en-informatique"
+          ><%= sidebar.barText3 %></a
+        >
+      </li>
+    </ul>
+  </section>
+</aside>

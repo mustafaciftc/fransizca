@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the page title -->
+    <title>Blog</title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('./header.ejs',{header,path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- heading banner -->
+        <div id="two-columns" class="container">
+          <div class="row">
+            <!-- content -->
+            <section id="content" class="col-xs-12 col-md-10">
+              <!-- blogPost -->
+              <% if (blogs?.length > 0) { %> <% blogs.forEach(blog => { %>
+              <article class="blogPost">
+                <% if (blog.createdDate) { %>
+                <time class="timeStamp font-lato text-center text-uppercase">
+                  <strong class="date fw-normal element-block"
+                    ><%= blog.createdDate?.getDate() %></strong
+                  >
+                  <span class="element-block"
+                    ><%= blog.createdDate?.getMonth() + 1 %></span
+                  >
+                  <span class="element-block"
+                    ><%= blog.createdDate?.getFullYear() %></span
+                  >
+                </time>
+                <% } %>
+                <div class="aligncenter">
+                  <img src="<%= blog.titleImg %>" />
+                </div>
+                <h1>
+                  <a href="/blog-detail/<%= blog._id %>"
+                    ><%= blog.titleH1Text1 %></a
+                  >
+                </h1>
+                <!-- postActionsInfo -->
+                <ul class="list-unstyled postActionsInfo text-uppercase">
+                  <li>
+                    <a href="javascript:void(0);"
+                      ><i class="far <%= blog.userIcon %>"></i><%= blog.user
+                      %></a
+                    >
+                  </li>
+                </ul>
+              </article>
+              <% }) %> <% } else { %> <% if (header.lang === "fr") { %>
+              <header class="seperator-head text-center">
+                <h2>Aucun blog trouvé</h2>
+              </header>
+              <% } else { %>
+              <header class="seperator-head text-center">
+                <h2>No blog found</h2>
+              </header>
+              <% } %> <% } %>
+            </section>
+          </div>
+        </div>
+      </main>
+      <!-- footer area container -->
+      <%- include('./footer.ejs',{footer, recentPost}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="../images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="/js/init.js"></script>
+  </body>
+</html>

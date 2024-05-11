@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <% if (home) { %>
+  <head>
+    <!-- set the encoding of your site -->
+    <meta charset="utf-8" />
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- set the HandheldFriendly -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- set the description -->
+    <!-- set the Keyword -->
+    <!-- set the page title -->
+    <title><%= home.title %></title>
+    <!-- include google roboto font cdn link -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- include the site bootstrap stylesheet -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/css/colors.css" />
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <!-- include the site responsive stylesheet -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- header of the page -->
+      <%- include('./header.ejs',{header, path}) %>
+      <!-- contain main informative part of the site -->
+      <main id="main">
+        <!-- intro block -->
+        <section class="intro-block">
+          <div class="slider fade-slider">
+            <div>
+              <!-- intro block slide -->
+              <article
+                class="intro-block-slide overlay bg-cover"
+                style="background-image: url('<%= home.slide1.slideImg %>')"
+              >
+                <div class="align-wrap container">
+                  <div class="align">
+                    <div class="anim">
+                      <h1 class="intro-block-heading position">
+                        <%= home.slide1.slideText %>
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div>
+              <!-- intro block slide -->
+              <article
+                class="intro-block-slide overlay bg-cover"
+                style="background-image: url('<%= home.slide2.slideImg %>')" 
+              >
+                <div class="align-wrap container">
+                  <div class="align">
+                    <div class="anim">
+                      <h6 class="intro-block-heading">
+                        <%= home.slide2.slideText1 %>
+                      </h6>
+                    </div>
+                    <div class="anim delay1">
+                      <h1 class="intro-block-heading"><%= home.slide2.slideText2 %></h1>
+                    </div>
+                    <div class="anim delay2">
+                      <div class="btns-wrap">
+                        <a
+                          href="/services"
+                          class="btn btn-warning btn-theme btn-font"
+                          ><%= home.slide2.slideButtonText %></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div>
+              <!-- intro block slide -->
+              <article
+                class="intro-block-slide overlay bg-cover"
+                style="background-image: url('<%=home.slide3.slideImg%>')"
+              >
+                <div class="align-wrap container">
+                  <div class="align">
+                    <div class="anim">
+                      <h1 class="intro-block-heading"><%=home.slide3.slideText%></h1>
+                    </div>
+                    <div class="anim delay1">
+					 <p><img src="<%=home.slide3.slideImg1%>"><%=home.slide3.slidePText1%></p>
+					 <p><img src="<%=home.slide3.slideImg2%>"><%=home.slide3.slidePText2%></p>
+					 <p><img src="<%=home.slide3.slideImg3%>"><%=home.slide3.slidePText3%></p>
+					 <p><img src="<%=home.slide3.slideImg4%>"><%=home.slide3.slidePText4%></p>
+                    </div>
+                    <div class="anim delay2">
+                      <div class="btns-wrap">
+                        <a
+                          href="/services"
+                          class="btn btn-warning btn-theme"
+                          ><%=home.slide3.slideButtonText%></a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          </section>
+		  <section class="container how-work-block text-center">
+			<header class="seperator-head">
+				<h2><%=home.Content.h2Text%></h2>
+				<p><%=home.Content.pText%></p>
+			</header>
+			<!-- steps guide holder -->
+			<aside class="bg-gray courses-column-aside">
+				<div class="container">
+					<div class="row holder">
+						<div class="col-xs-12 col-sm-4 col-md-3">
+							<!-- descr column -->
+							<div class="descr-column text-center">
+								<img src="<%=home.Content.img1%>" alt="">
+								<h3 class="h3-position"><%=home.Content.h3Text1%></h3>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-3">
+							<!-- descr column -->
+							<div class="descr-column text-center">
+								<img src="<%=home.Content.img2%>" alt="">
+								<h3 class="h3-position"><%=home.Content.h3Text2%></h3>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<!-- descr column -->
+							<div class="descr-column text-center">
+								<img src="<%=home.Content.img3%>" alt="">
+								<h3 class="h3-position"><%=home.Content.h3Text3%></h3>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-3">
+							<!-- descr column -->
+							<div class="descr-column text-center">
+								<img src="<%=home.Content.img4%>" alt="">
+								<h3 class="h3-position"><%=home.Content.h3Text4%></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</section>
+		<section class="contact-block">
+			<div class="container">
+				<header class="seperator-head text-center">
+					<h2><%=home.Support.h2Text%></h2>
+					<p><%=home.Support.pText%></p>
+				</header>
+				<!-- contact form -->
+				<form action="#" class="contact-form">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<input type="text" class="form-control element-block" placeholder="<%=home.Support.inputPlaceHolder1%>">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<input type="email" class="form-control element-block" placeholder="<%=home.Support.inputPlaceHolder2%>">
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="form-group">
+								<input type="text" class="form-control element-block" placeholder="<%=home.Support.inputPlaceHolder3%>">
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="form-group">
+								<textarea class="form-control element-block" placeholder="<%=home.Support.inputPlaceHolder4%>"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="text-center">
+						<button type="submit" class="btn btn-theme btn-block btn-warning "><%=home.Support.buttonText%></button>
+					</div>
+				</form>
+			</div>
+		</section>
+     <%- include('./footer',{footer, path}) %>
+      <!-- back top of the page -->
+      <span id="back-top" class="text-center fa fa-caret-up"></span>
+      <!-- loader of the page -->
+      <div id="loader" class="loader-holder">
+        <div class="block">
+          <img src="images/svg/hearts.svg" width="100" alt="loader" />
+        </div>
+      </div>
+    </div>
+    <!-- include jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/plugins.js"></script>
+    <!-- include jQuery -->
+    <script src="/js/jquery.main.js"></script>
+    <!-- include jQuery -->
+    <script type="text/javascript" src="/js/init.js"></script>
+  </body>
+  <% } %>
+</html>
