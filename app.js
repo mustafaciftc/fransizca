@@ -199,6 +199,6 @@ app.use(errorController.get404Page);
 
 moongose.connect(uri).then(() => {
   app.listen(8080, () => {
-    console.log("Database bağlandı ve sunucu çalıştırıldı!");
+    console.log("Database bağlandı, sunucu çalıştırıldı!");
   });
 });
