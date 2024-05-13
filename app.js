@@ -198,7 +198,7 @@ app.use("/admin", adminRouter);
 app.use(errorController.get404Page);
 
 moongose.connect(uri).then(() => {
-  app.listen(5000, () => {
+  app.listen(8080, () => {
     console.log("Database bağlandı ve sunucu çalıştırıldı!");
   });
 });
